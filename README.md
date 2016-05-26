@@ -1,0 +1,2 @@
+# Bymyslf.InMemoryAuthenticationSessionStore
+A simple IAuthenticationSessionStore proof of concept
