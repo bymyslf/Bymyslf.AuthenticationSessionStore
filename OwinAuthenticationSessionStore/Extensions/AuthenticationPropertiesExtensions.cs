@@ -10,7 +10,7 @@ namespace OwinAuthenticationSessionStore.Extensions
             if (properties.ExpiresUtc.HasValue)
             {
                 var expiresUtc = properties.ExpiresUtc.Value;
-                return expiresUtc.DateTime.Subtract(DateTimeOffset.Now);
+                return expiresUtc.Subtract(DateTimeOffset.Now);
             }
 
             return TimeSpan.FromMinutes(@default);
