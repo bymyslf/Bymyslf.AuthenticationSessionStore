@@ -1,5 +1,6 @@
 ﻿using System;
 using Bymyslf.AuthenticationSessionStore.Models;
+using Bymyslf.AuthenticationSessionStore.Redis;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -26,7 +27,10 @@ namespace Bymyslf.AuthenticationSessionStore
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
-                SessionStore = new InMemoryAuthenticationSessionStore(),
+                SessionStore = new RedisAuthenticationSessionStore(
+                    new RedisConnection(new RedisConnectionSettings(RedisSettings.Settings.Database, RedisSettings.Settings.ConnectionString)),
+                    new DefaultAuthenticationTicketSerializer()
+                    ),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.

@@ -49,6 +49,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StackExchange.Redis, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.1.603\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,12 +171,18 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AuthenticationSessionStore\DefaultAuthenticationTicketSerializer.cs" />
+    <Compile Include="AuthenticationSessionStore\IAuthenticationTicketSerializer.cs" />
+    <Compile Include="AuthenticationSessionStore\Redis\IRedisConnection.cs" />
+    <Compile Include="AuthenticationSessionStore\Redis\RedisAuthenticationSessionStore.cs" />
+    <Compile Include="AuthenticationSessionStore\Redis\RedisConnection.cs" />
+    <Compile Include="AuthenticationSessionStore\Redis\RedisConnectionSettings.cs" />
+    <Compile Include="AuthenticationSessionStore\Redis\RedisSettings.cs" />
     <Compile Include="Extensions\AuthenticationPropertiesExtensions.cs" />
     <Compile Include="AuthenticationSessionStore\InMemoryAuthenticationSessionStore.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Extensions\AuthenticationTicketExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -242,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="AuthenticationSessionStore\Redis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

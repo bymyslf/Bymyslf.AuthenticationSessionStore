@@ -12,11 +12,15 @@ namespace Bymyslf.AuthenticationSessionStore
 {
     public class InMemoryAuthenticationSessionStore : IAuthenticationSessionStore
     {
+        private readonly IAuthenticationTicketSerializer serializer;
         private readonly ConcurrentDictionary<string, string> store;
         private readonly Timer garbageCollectTimer;
 
-        public InMemoryAuthenticationSessionStore()
+        public InMemoryAuthenticationSessionStore(IAuthenticationTicketSerializer serializer)
         {
+            Guard.Against<ArgumentNullException>(serializer.IsNull(), "serializer can't be null");
+
+            this.serializer = serializer;
             this.store = new ConcurrentDictionary<string, string>();
             this.garbageCollectTimer = new Timer(new TimerCallback(this.GarbageCollect), null, TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(15));
         }
@@ -39,7 +43,8 @@ namespace Bymyslf.AuthenticationSessionStore
             if (entry.IsNotNull())
             {
                 var oldValue = entry.Value;
-                this.store.TryUpdate(key, ticket.SerializeAsJson(), oldValue);
+                var json = this.serializer.Serialize(ticket);
+                this.store.TryUpdate(key, json, oldValue);
             }
 
             return Task.FromResult(0);
@@ -52,7 +57,7 @@ namespace Bymyslf.AuthenticationSessionStore
             var entry = this.store.FirstOrDefault(ent => ent.Key == key);
             if (entry.IsNotNull())
             {
-                return Task.FromResult(entry.Value.DeserializeAsAuthenticationTicket());
+                return Task.FromResult(this.serializer.Deserialize(entry.Value));
             }
 
             return Task.FromResult((AuthenticationTicket)null);
@@ -63,7 +68,8 @@ namespace Bymyslf.AuthenticationSessionStore
             Guard.Against<ArgumentNullException>(ticket.IsNull(), "StoreAsync - ticket can't be null");
 
             var key = Guid.NewGuid().ToString("N");
-            this.store.TryAdd(key, ticket.SerializeAsJson());
+            var json = this.serializer.Serialize(ticket);
+            this.store.TryAdd(key, json);
             return Task.FromResult(key);
         }
 
@@ -73,7 +79,8 @@ namespace Bymyslf.AuthenticationSessionStore
             var now = DateTimeOffset.Now.ToUniversalTime();
             foreach (var entry in this.store)
             {
-                var expiresAt = entry.Value.DeserializeAsAuthenticationTicket().Properties.ExpiresUtc;
+                var ticket = this.serializer.Deserialize(entry.Value);
+                var expiresAt = ticket.Properties.ExpiresUtc;
                 if (expiresAt < now)
                 {
                     this.store.TryRemove(entry.Key, out value);
