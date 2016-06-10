@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Owin.Security;
 
-namespace OwinAuthenticationSessionStore.Extensions
+namespace Bymyslf.AuthenticationSessionStore.Extensions
 {
     public static class AuthenticationPropertiesExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OwinAuthenticationSessionStore.Utils
+namespace Bymyslf.AuthenticationSessionStore.Utils
 {
     /// <summary>
     /// Helper class which allow prettier code for guard clauses

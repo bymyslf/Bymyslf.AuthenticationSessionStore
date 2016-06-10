@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using OwinAuthenticationSessionStore.Models;
+using Bymyslf.AuthenticationSessionStore.Models;
 
-namespace OwinAuthenticationSessionStore
+namespace Bymyslf.AuthenticationSessionStore
 {
     public class EmailService : IIdentityMessageService
     {

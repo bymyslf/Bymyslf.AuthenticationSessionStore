@@ -1,8 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(OwinAuthenticationSessionStore.Startup))]
-namespace OwinAuthenticationSessionStore
+[assembly: OwinStartupAttribute(typeof(Bymyslf.AuthenticationSessionStore.Startup))]
+
+namespace Bymyslf.AuthenticationSessionStore
 {
     public partial class Startup
     {

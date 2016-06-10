@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json.Linq;
 
-namespace OwinAuthenticationSessionStore.Extensions
+namespace Bymyslf.AuthenticationSessionStore.Extensions
 {
     public static class AuthenticationTicketExtensions
     {

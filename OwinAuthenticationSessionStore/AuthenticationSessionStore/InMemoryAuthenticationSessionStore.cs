@@ -3,12 +3,12 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Bymyslf.AuthenticationSessionStore.Extensions;
+using Bymyslf.AuthenticationSessionStore.Utils;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
-using OwinAuthenticationSessionStore.Extensions;
-using OwinAuthenticationSessionStore.Utils;
 
-namespace OwinAuthenticationSessionStore.AuthenticationSessionStore
+namespace Bymyslf.AuthenticationSessionStore
 {
     public class InMemoryAuthenticationSessionStore : IAuthenticationSessionStore
     {

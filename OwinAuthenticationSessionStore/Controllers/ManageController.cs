@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using OwinAuthenticationSessionStore.Models;
+using Bymyslf.AuthenticationSessionStore.Models;
 
-namespace OwinAuthenticationSessionStore.Controllers
+namespace Bymyslf.AuthenticationSessionStore.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace OwinAuthenticationSessionStore
+namespace Bymyslf.AuthenticationSessionStore
 {
     public class BundleConfig
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OwinAuthenticationSessionStore.Extensions
+namespace Bymyslf.AuthenticationSessionStore.Extensions
 {
     public static class ObjectExtensions
     {

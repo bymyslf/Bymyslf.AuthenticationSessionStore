@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace OwinAuthenticationSessionStore.Models
+namespace Bymyslf.AuthenticationSessionStore.Models
 {
     public class IndexViewModel
     {

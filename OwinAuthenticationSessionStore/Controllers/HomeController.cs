@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace OwinAuthenticationSessionStore.Controllers
+namespace Bymyslf.AuthenticationSessionStore.Controllers
 {
     public class HomeController : Controller
     {

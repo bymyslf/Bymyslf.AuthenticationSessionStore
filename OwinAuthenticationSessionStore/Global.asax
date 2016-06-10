@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="OwinAuthenticationSessionStore.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Bymyslf.AuthenticationSessionStore.MvcApplication" Language="C#" %>

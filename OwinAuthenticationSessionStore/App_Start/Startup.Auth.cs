@@ -1,14 +1,13 @@
 ﻿using System;
+using Bymyslf.AuthenticationSessionStore.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using OwinAuthenticationSessionStore.AuthenticationSessionStore;
-using OwinAuthenticationSessionStore.Models;
 
-namespace OwinAuthenticationSessionStore
+namespace Bymyslf.AuthenticationSessionStore
 {
     public partial class Startup
     {

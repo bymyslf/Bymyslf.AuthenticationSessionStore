@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace OwinAuthenticationSessionStore.Models
+namespace Bymyslf.AuthenticationSessionStore.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
