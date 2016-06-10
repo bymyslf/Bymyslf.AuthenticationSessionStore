@@ -10,7 +10,7 @@ namespace Bymyslf.AuthenticationSessionStore.Extensions
             if (properties.ExpiresUtc.HasValue)
             {
                 var expiresUtc = properties.ExpiresUtc.Value;
-                return new TimeSpan(expiresUtc.Hour, expiresUtc.Minute, expiresUtc.Second);
+                return expiresUtc.Subtract(DateTimeOffset.Now);
             }
 
             return TimeSpan.FromMinutes(@default);
