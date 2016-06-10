@@ -1,2 +1,2 @@
-# Bymyslf.InMemoryAuthenticationSessionStore
-A simple IAuthenticationSessionStore proof of concept
+# Bymyslf.AuthenticationSessionStore
+A simple IAuthenticationSessionStore (InMemory and Redis) proof of concept
